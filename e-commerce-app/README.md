@@ -1,16 +1,32 @@
-# React + Vite
+## React 19 Training assignment
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## E-Commerce Application
 
-Currently, two official plugins are available:
+## Overview
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+This project is a Mini E-Commerce application built using React 19.
+It demonstrates React 19 features including use(), Suspense,
+useActionState(), useFormStatus(), Context, Document Metadata,
+and Asset Loading APIs.
 
-## React Compiler
+## Features
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- Product listing
+- Asynchronous product loading
+- Loading state using Suspense
+- Error handling using Error Boundary
+- User registration
+- Form validation
+- Async form submission
+- Pending state
+- React Context
+- Document metadata
+- Asset preloading
 
-## Expanding the ESLint configuration
+## use()
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+React 19's use() API is used to consume the product-data Promise.
+
+```jsx
+const products = use(productsPromise);
+```
