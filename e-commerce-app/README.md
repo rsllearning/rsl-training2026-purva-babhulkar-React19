@@ -1,33 +1,31 @@
-## React 19 Mini E-Commerce Application
+## React 19 Training assignment
+
+## E-Commerce Application
 
 ## Overview
 
-A Mini E-Commerce application built using **React 19** to demonstrate modern React features including asynchronous data handling, form actions, Context, document metadata, and resource loading.
+This project is a Mini E-Commerce application built using React 19.
+It demonstrates React 19 features including use(), Suspense,
+useActionState(), useFormStatus(), Context, Document Metadata,
+and Asset Loading APIs.
 
-### Features
+## Features
 
-- Product listing with name, price, category, image, and description
+- Product listing
 - Asynchronous product loading
-- Loading state using `Suspense`
+- Loading state using Suspense
 - Error handling using Error Boundary
-- User registration with form validation
+- User registration
+- Form validation
 - Async form submission
 - Pending state
-- React Context for registered user information
+- React Context
 - Document metadata
-- Resource loading using `preconnect()` and `preload()`
+- Asset preloading
 
----
+## use()
 
-## 1. `use()` and Suspense
-
-Product data is returned as a Promise from the mock product service.
-
-```jsx
-const productsPromise = getProducts();
-```
-
-`ProductList` uses React 19's `use()` API to consume the Promise:
+React 19's use() API is used to consume the product-data Promise.
 
 ```jsx
 const products = use(productsPromise);
