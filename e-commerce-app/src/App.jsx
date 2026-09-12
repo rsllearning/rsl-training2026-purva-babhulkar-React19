@@ -1,7 +1,10 @@
-import { Suspense } from "react";
+import { Suspense, useState } from "react";
 import { preconnect, preload } from "react-dom";
 
 import ProductList from "./components/ProductList";
+import ProductDetails from "./components/ProductDetails";
+import ProductSection from "./components/ProductSection";
+import ProductSearch from "./components/ProductSearch";
 import RegistrationForm from "./components/RegistrationForm";
 import UserProfile from "./components/UserProfile";
 import ProductErrorBoundary from "./components/ProductErrorBoundary";
@@ -17,9 +20,13 @@ preload("https://picsum.photos/300/200?random=1", {
 const productsPromise = getProducts();
 
 function App() {
+  const [selectedProduct, setSelectedProduct] = useState(null);
+
+  const [cartCount, setCartCount] = useState(0);
+
   return (
     <>
-      <title>Mini E-Commerce Store - Products</title>
+      <title>Mini E-Commerce Store – Products</title>
 
       <meta
         name="description"
@@ -33,15 +40,24 @@ function App() {
 
         <UserProfile />
 
-        <section>
-          <h2>Products</h2>
+        <ProductSearch />
 
+        <ProductSection>
           <ProductErrorBoundary>
             <Suspense fallback={<p>Loading products...</p>}>
-              <ProductList productsPromise={productsPromise} />
+              <ProductList
+                productsPromise={productsPromise}
+                onSelectProduct={setSelectedProduct}
+              />
             </Suspense>
           </ProductErrorBoundary>
-        </section>
+        </ProductSection>
+
+        <ProductDetails
+          product={selectedProduct}
+          cartCount={cartCount}
+          setCartCount={setCartCount}
+        />
       </main>
     </>
   );
